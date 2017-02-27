@@ -1,5 +1,5 @@
-#include "configure.h"
-#include "peripherals.h"
+#include "drivers/configure.h"
+#include "drivers/peripherals.h"
 #include "threads.h"
 
 void main(void) {

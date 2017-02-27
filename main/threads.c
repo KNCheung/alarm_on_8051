@@ -1,11 +1,12 @@
-#include "ex_pt.h"
-#include "SN74HC595.h"
-#include "peripherals.h"
+#include "pt/ex_pt.h"
+#include "drivers/SN74HC595.h"
+#include "drivers/peripherals.h"
+#include "apps/apps.h"
 
 pt_state pt_blink;
 
 char thread_blink(pt_state *pt) {
-    static pt_timestamp ts, timer;
+    static pt_timestamp timer;
     char isOn;
 
     PT_BEGIN(pt);
@@ -24,10 +25,12 @@ char thread_blink(pt_state *pt) {
 
 void threads_init(void) {
     PT_INIT(&pt_blink);
+    apps_init();
 }
 
 void threads_loop(void) {
     while(1) {
         thread_blink(&pt_blink);
+        apps_spin();
     }
 }

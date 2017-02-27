@@ -1,7 +1,7 @@
 #ifndef __TASKS_H_
 #define __TASKS_H_
 
-#include "ex_pt.h"
+#include "pt/ex_pt.h"
 
 void threads_init(void);
 
